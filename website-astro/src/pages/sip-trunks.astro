@@ -1,0 +1,147 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="SIP-Trunks verwalten - Provider-Anbindung - GonoPBX" description="GonoPBX SIP-Trunks: Verbindung zu SIP-Providern per Registrierung oder IP-Auth. Plusnet, Sipgate, Telekom und weitere Anbieter einfach einrichten.">
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="container">
+      <a href="/" class="nav-logo">
+        <img src="/logo.png" alt="GonoPBX Logo" />
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 12h18M3 6h18M3 18h18" />
+        </svg>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/#features">Features</a></li>
+        <li><a href="/#screenshots">Screenshots</a></li>
+        <li><a href="/#techstack">Technologie</a></li>
+        <li><a href="/#installation">Installation</a></li>
+        <li><a href="/release-notes">Release Notes</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/kontakt">Kontakt</a></li>
+        <li><a href="https://github.com/ankaios76/gonopbx" class="nav-cta">GitHub</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="blog-article">
+    <div class="container">
+      <a href="/#features" class="blog-back-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+        Zur&uuml;ck zur &Uuml;bersicht
+      </a>
+
+      <div class="blog-article-header">
+        <div class="blog-card-meta" style="justify-content:center;">
+          <span class="blog-card-tag">Feature</span>
+          <span>Kernfunktion</span>
+        </div>
+        <h1>SIP-Trunks &ndash; Provider-Anbindung leicht gemacht</h1>
+      </div>
+
+      <div class="blog-article-content">
+
+        <p>
+          SIP-Trunks verbinden deine Telefonanlage mit dem &ouml;ffentlichen Telefonnetz.
+          GonoPBX unterst&uuml;tzt <strong>Registrierungs- und IP-basierte Authentifizierung</strong>
+          und macht die Einrichtung so einfach wie m&ouml;glich.
+        </p>
+
+        <h2>Funktionen</h2>
+
+        <ul>
+          <li><strong>Registrierung</strong> &ndash; Klassische SIP-Registrierung mit Benutzername und Passwort beim Provider</li>
+          <li><strong>IP-Authentifizierung</strong> &ndash; F&uuml;r Provider die auf Basis der IP-Adresse authentifizieren</li>
+          <li><strong>Registrierungsstatus</strong> &ndash; Live-Anzeige ob der Trunk beim Provider registriert ist</li>
+          <li><strong>Mehrere Trunks</strong> &ndash; Beliebig viele Provider-Anbindungen gleichzeitig</li>
+          <li><strong>Codec-Konfiguration</strong> &ndash; Codecs pro Trunk festlegen</li>
+          <li><strong>NAT-Unterst&uuml;tzung</strong> &ndash; Automatische Erkennung der externen IP-Adresse</li>
+        </ul>
+
+        <h2>Screenshot</h2>
+
+        <div style="margin:32px 0;">
+          <img src="/feature-sip-trunks.png" alt="SIP-Trunk-Verwaltung in GonoPBX" style="width:100%;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,0.1);" />
+          <p style="text-align:center;color:#718096;font-size:0.9rem;margin-top:8px;">SIP-Trunk-&Uuml;bersicht mit Registrierungsstatus und Konfiguration</p>
+        </div>
+
+        <h2>Unterst&uuml;tzte Provider</h2>
+
+        <p>GonoPBX funktioniert mit jedem standardkonformen SIP-Provider. Getestet mit:</p>
+
+        <ul>
+          <li><strong>Plusnet (IPfonie)</strong> &ndash; Registrierung mit SIP-Credentials</li>
+          <li><strong>Sipgate</strong> &ndash; SIP-Trunk mit Registrierung</li>
+          <li><strong>Deutsche Telekom</strong> &ndash; All-IP / SIP-Trunk</li>
+          <li><strong>easybell</strong> &ndash; SIP-Trunk mit Registrierung</li>
+          <li>Jeder weitere RFC-3261-konforme SIP-Provider</li>
+        </ul>
+
+        <h2>Einrichtung</h2>
+
+        <table style="width:100%;border-collapse:collapse;margin:24px 0;">
+          <thead>
+            <tr style="border-bottom:2px solid #e2e8f0;text-align:left;">
+              <th style="padding:12px 16px;color:#4a5568;">Schritt</th>
+              <th style="padding:12px 16px;color:#4a5568;">Aktion</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid #e2e8f0;">
+              <td style="padding:12px 16px;">1</td>
+              <td style="padding:12px 16px;">Einstellungen &rarr; Leitungen &rarr; &bdquo;Neuer Trunk&ldquo;</td>
+            </tr>
+            <tr style="border-bottom:1px solid #e2e8f0;">
+              <td style="padding:12px 16px;">2</td>
+              <td style="padding:12px 16px;">Provider-Typ w&auml;hlen (Registrierung oder IP-Auth)</td>
+            </tr>
+            <tr style="border-bottom:1px solid #e2e8f0;">
+              <td style="padding:12px 16px;">3</td>
+              <td style="padding:12px 16px;">SIP-Server, Benutzername und Passwort eingeben</td>
+            </tr>
+            <tr>
+              <td style="padding:12px 16px;">4</td>
+              <td style="padding:12px 16px;">Speichern &ndash; Registrierungsstatus pr&uuml;fen</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="blog-info-box">
+          <p>
+            <strong>Seit der ersten Version verf&uuml;gbar.</strong>
+            Trunk-Verwaltung ist eine Kernfunktion und wird kontinuierlich weiterentwickelt.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <ul class="footer-links">
+        <li><a href="https://github.com/ankaios76/gonopbx">GitHub</a></li>
+        <li><a href="https://demo.gonopbx.de">Live-Demo</a></li>
+        <li><a href="/impressum">Impressum</a></li>
+        <li><a href="/datenschutz">Datenschutz</a></li>
+      </ul>
+      <p>&copy; 2026 Norbert Hengsteler. Alle Rechte vorbehalten.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('navToggle')?.addEventListener('click', () => {
+      document.getElementById('navLinks')?.classList.toggle('open');
+    });
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('navLinks')?.classList.remove('open');
+      });
+    });
+  </script>
+
+</Layout>

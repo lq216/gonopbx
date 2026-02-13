@@ -1,0 +1,137 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Rufumleitungen - Sofort, Besetzt, Nichtmelden - GonoPBX" description="GonoPBX Rufumleitungen: Sofort-, Besetzt- und Nichtmelden-Weiterleitungen pro Nebenstelle. Aktivierung per Toggle direkt in der Web-GUI.">
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="container">
+      <a href="/" class="nav-logo">
+        <img src="/logo.png" alt="GonoPBX Logo" />
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 12h18M3 6h18M3 18h18" />
+        </svg>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/#features">Features</a></li>
+        <li><a href="/#screenshots">Screenshots</a></li>
+        <li><a href="/#techstack">Technologie</a></li>
+        <li><a href="/#installation">Installation</a></li>
+        <li><a href="/release-notes">Release Notes</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/kontakt">Kontakt</a></li>
+        <li><a href="https://github.com/ankaios76/gonopbx" class="nav-cta">GitHub</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="blog-article">
+    <div class="container">
+      <a href="/#features" class="blog-back-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+        Zur&uuml;ck zur &Uuml;bersicht
+      </a>
+
+      <div class="blog-article-header">
+        <div class="blog-card-meta" style="justify-content:center;">
+          <span class="blog-card-tag">Feature</span>
+          <span>Kernfunktion</span>
+        </div>
+        <h1>Rufumleitungen &ndash; Anrufe intelligent weiterleiten</h1>
+      </div>
+
+      <div class="blog-article-content">
+
+        <p>
+          Mit Rufumleitungen stellst du sicher, dass <strong>kein Anruf verloren geht</strong>.
+          Pro Nebenstelle lassen sich drei Weiterleitungstypen konfigurieren &ndash;
+          jeweils mit Zielnummer und per Toggle aktivierbar.
+        </p>
+
+        <h2>Weiterleitungstypen</h2>
+
+        <ul>
+          <li><strong>Sofort (Unconditional)</strong> &ndash; Alle Anrufe werden direkt an die Zielnummer weitergeleitet, ohne dass das Telefon klingelt</li>
+          <li><strong>Besetzt (Busy)</strong> &ndash; Weiterleitung nur wenn die Nebenstelle gerade im Gespr&auml;ch ist</li>
+          <li><strong>Nichtmelden (No Answer)</strong> &ndash; Weiterleitung nach einer konfigurierbaren Wartezeit (z.B. 20 Sekunden)</li>
+        </ul>
+
+        <h2>Screenshot</h2>
+
+        <div style="margin:32px 0;">
+          <img src="/feature-rufumleitungen.png" alt="Rufumleitungen in GonoPBX" style="width:100%;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,0.1);" />
+          <p style="text-align:center;color:#718096;font-size:0.9rem;margin-top:8px;">Rufumleitungen pro Nebenstelle mit Toggle-Aktivierung</p>
+        </div>
+
+        <h2>Funktionen im Detail</h2>
+
+        <ul>
+          <li><strong>Toggle pro Typ</strong> &ndash; Jede Umleitungsart einzeln ein- und ausschalten</li>
+          <li><strong>Interne &amp; externe Ziele</strong> &ndash; Weiterleitung an andere Nebenstellen oder externe Nummern</li>
+          <li><strong>Sofortige Aktivierung</strong> &ndash; &Auml;nderungen werden sofort im Dialplan wirksam</li>
+          <li><strong>Kombinierbar</strong> &ndash; Besetzt- und Nichtmelden-Umleitung k&ouml;nnen gleichzeitig aktiv sein</li>
+        </ul>
+
+        <h2>Typische Szenarien</h2>
+
+        <table style="width:100%;border-collapse:collapse;margin:24px 0;">
+          <thead>
+            <tr style="border-bottom:2px solid #e2e8f0;text-align:left;">
+              <th style="padding:12px 16px;color:#4a5568;">Szenario</th>
+              <th style="padding:12px 16px;color:#4a5568;">Einstellung</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid #e2e8f0;">
+              <td style="padding:12px 16px;">Urlaub / Abwesenheit</td>
+              <td style="padding:12px 16px;">Sofort-Umleitung auf Vertretung oder Mobilnummer</td>
+            </tr>
+            <tr style="border-bottom:1px solid #e2e8f0;">
+              <td style="padding:12px 16px;">Besetzt-Fallback</td>
+              <td style="padding:12px 16px;">Besetzt-Umleitung auf Voicemail oder Kollegen</td>
+            </tr>
+            <tr>
+              <td style="padding:12px 16px;">Anruf verpasst</td>
+              <td style="padding:12px 16px;">Nichtmelden-Umleitung nach 20s auf Voicemail</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="blog-info-box">
+          <p>
+            <strong>Seit der ersten Version verf&uuml;gbar.</strong>
+            Rufumleitungen werden im Dialplan umgesetzt und sind sofort aktiv.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <ul class="footer-links">
+        <li><a href="https://github.com/ankaios76/gonopbx">GitHub</a></li>
+        <li><a href="https://demo.gonopbx.de">Live-Demo</a></li>
+        <li><a href="/impressum">Impressum</a></li>
+        <li><a href="/datenschutz">Datenschutz</a></li>
+      </ul>
+      <p>&copy; 2026 Norbert Hengsteler. Alle Rechte vorbehalten.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('navToggle')?.addEventListener('click', () => {
+      document.getElementById('navLinks')?.classList.toggle('open');
+    });
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('navLinks')?.classList.remove('open');
+      });
+    });
+  </script>
+
+</Layout>

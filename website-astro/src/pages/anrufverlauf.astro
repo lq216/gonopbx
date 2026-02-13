@@ -1,0 +1,149 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Anrufverlauf - Call Detail Records - GonoPBX" description="GonoPBX Anrufverlauf: Vollst&auml;ndiger CDR mit Filter nach Quelle, Ziel und Status. Statistiken und Anrufhistorie auf einen Blick.">
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="container">
+      <a href="/" class="nav-logo">
+        <img src="/logo.png" alt="GonoPBX Logo" />
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 12h18M3 6h18M3 18h18" />
+        </svg>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/#features">Features</a></li>
+        <li><a href="/#screenshots">Screenshots</a></li>
+        <li><a href="/#techstack">Technologie</a></li>
+        <li><a href="/#installation">Installation</a></li>
+        <li><a href="/release-notes">Release Notes</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/kontakt">Kontakt</a></li>
+        <li><a href="https://github.com/ankaios76/gonopbx" class="nav-cta">GitHub</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="blog-article">
+    <div class="container">
+      <a href="/#features" class="blog-back-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+        Zur&uuml;ck zur &Uuml;bersicht
+      </a>
+
+      <div class="blog-article-header">
+        <div class="blog-card-meta" style="justify-content:center;">
+          <span class="blog-card-tag">Feature</span>
+          <span>Kernfunktion</span>
+        </div>
+        <h1>Anrufverlauf &ndash; Alle Anrufe im &Uuml;berblick</h1>
+      </div>
+
+      <div class="blog-article-content">
+
+        <p>
+          Der Anrufverlauf zeigt <strong>jeden ein- und ausgehenden Anruf</strong> mit
+          Zeitstempel, Quelle, Ziel, Dauer und Status. Filterbar, durchsuchbar und
+          mit Statistiken auf einen Blick.
+        </p>
+
+        <h2>Funktionen</h2>
+
+        <ul>
+          <li><strong>Vollst&auml;ndiger CDR</strong> &ndash; Call Detail Records mit allen relevanten Feldern</li>
+          <li><strong>Filter</strong> &ndash; Nach Quelle, Ziel, Status (beantwortet, verpasst, besetzt) filtern</li>
+          <li><strong>Zeitraum</strong> &ndash; Anrufe nach Datum eingrenzen</li>
+          <li><strong>Statistiken</strong> &ndash; Anrufanzahl, durchschnittliche Dauer, Erfolgsquote</li>
+          <li><strong>Richtung</strong> &ndash; Eingehend, ausgehend und intern unterscheidbar</li>
+          <li><strong>Pagination</strong> &ndash; Auch bei tausenden Eintr&auml;gen performant</li>
+        </ul>
+
+        <h2>Screenshot</h2>
+
+        <div style="margin:32px 0;">
+          <img src="/feature-anrufverlauf.png" alt="Anrufverlauf in GonoPBX" style="width:100%;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,0.1);" />
+          <p style="text-align:center;color:#718096;font-size:0.9rem;margin-top:8px;">Anrufverlauf mit Filter und Statistiken</p>
+        </div>
+
+        <h2>Wie funktioniert es?</h2>
+
+        <p>
+          Asterisk schreibt jeden Anruf als CDR-Eintrag in die PostgreSQL-Datenbank.
+          Das Backend liest diese Daten und stellt sie &uuml;ber die API bereit.
+          Das Frontend zeigt sie in einer sortierbaren Tabelle mit Filtern.
+        </p>
+
+        <ul>
+          <li><strong>PostgreSQL-basiert</strong> &ndash; CDRs persistent in der Datenbank gespeichert</li>
+          <li><strong>Echtzeit</strong> &ndash; Neue Anrufe erscheinen sofort nach Gespr&auml;chsende</li>
+          <li><strong>Exportierbar</strong> &ndash; Daten k&ouml;nnen &uuml;ber die API abgerufen werden</li>
+        </ul>
+
+        <h2>Statustypen</h2>
+
+        <table style="width:100%;border-collapse:collapse;margin:24px 0;">
+          <thead>
+            <tr style="border-bottom:2px solid #e2e8f0;text-align:left;">
+              <th style="padding:12px 16px;color:#4a5568;">Status</th>
+              <th style="padding:12px 16px;color:#4a5568;">Bedeutung</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid #e2e8f0;">
+              <td style="padding:12px 16px;"><span style="color:#38a169;">&#9679;</span> Beantwortet</td>
+              <td style="padding:12px 16px;">Anruf wurde angenommen und Gespr&auml;ch gef&uuml;hrt</td>
+            </tr>
+            <tr style="border-bottom:1px solid #e2e8f0;">
+              <td style="padding:12px 16px;"><span style="color:#e53e3e;">&#9679;</span> Verpasst</td>
+              <td style="padding:12px 16px;">Anruf wurde nicht angenommen (No Answer)</td>
+            </tr>
+            <tr style="border-bottom:1px solid #e2e8f0;">
+              <td style="padding:12px 16px;"><span style="color:#ed8936;">&#9679;</span> Besetzt</td>
+              <td style="padding:12px 16px;">Nebenstelle war im Gespr&auml;ch (Busy)</td>
+            </tr>
+            <tr>
+              <td style="padding:12px 16px;"><span style="color:#718096;">&#9679;</span> Fehlgeschlagen</td>
+              <td style="padding:12px 16px;">Verbindung konnte nicht hergestellt werden</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="blog-info-box">
+          <p>
+            <strong>Seit der ersten Version verf&uuml;gbar.</strong>
+            Der Anrufverlauf wird mit jedem Release um weitere Filter und Statistiken erweitert.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <ul class="footer-links">
+        <li><a href="https://github.com/ankaios76/gonopbx">GitHub</a></li>
+        <li><a href="https://demo.gonopbx.de">Live-Demo</a></li>
+        <li><a href="/impressum">Impressum</a></li>
+        <li><a href="/datenschutz">Datenschutz</a></li>
+      </ul>
+      <p>&copy; 2026 Norbert Hengsteler. Alle Rechte vorbehalten.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('navToggle')?.addEventListener('click', () => {
+      document.getElementById('navLinks')?.classList.toggle('open');
+    });
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('navLinks')?.classList.remove('open');
+      });
+    });
+  </script>
+
+</Layout>

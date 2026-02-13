@@ -122,71 +122,72 @@ import Layout from '../layouts/Layout.astro';
       </div>
 
       <div class="features-grid">
-        <div class="feature-card fade-in">
+        <a href="/nebenstellen" class="feature-card fade-in" style="text-decoration:none;color:inherit;">
           <div class="feature-icon" style="background:#ebf8ff;">&#128222;</div>
-          <h3>Nebenstellen</h3>
+          <h3>Nebenstellen <span style="font-size:0.7em;color:#3182ce;">&rarr;</span></h3>
           <p>SIP-Accounts anlegen, bearbeiten und l&ouml;schen. Jede Nebenstelle mit eigener Caller-ID, Kontext und Aktivierungsstatus.</p>
-        </div>
+        </a>
 
-        <div class="feature-card fade-in">
+        <a href="/sip-trunks" class="feature-card fade-in" style="text-decoration:none;color:inherit;">
           <div class="feature-icon" style="background:#f0fff4;">&#128268;</div>
-          <h3>SIP-Trunks</h3>
+          <h3>SIP-Trunks <span style="font-size:0.7em;color:#3182ce;">&rarr;</span></h3>
           <p>Verbindung zu SIP-Providern per Registrierung oder IP-Authentifizierung. Unterst&uuml;tzung f&uuml;r Plusnet IPfonie und weitere Anbieter.</p>
-        </div>
+        </a>
 
-        <div class="feature-card fade-in">
-          <div class="feature-icon" style="background:#faf5ff;">&#128224;</div>
-          <h3>Rufnummern-Zuordnung</h3>
-          <p>Eingehende Rufnummern (DIDs) flexibel Nebenstellen zuordnen. Nummernblock-Verwaltung pro Trunk.</p>
-        </div>
-
-        <div class="feature-card fade-in">
-          <div class="feature-icon" style="background:#fffaf0;">&#128260;</div>
-          <h3>Rufumleitungen</h3>
-          <p>Sofort-, Besetzt- und Nichtmelden-Weiterleitungen pro Nebenstelle. Aktivierung per Toggle.</p>
-        </div>
-
-        <div class="feature-card fade-in">
-          <div class="feature-icon" style="background:#fff5f5;">&#128233;</div>
-          <h3>Voicemail</h3>
-          <p>Voicemail-Mailbox pro Nebenstelle mit PIN, E-Mail-Benachrichtigung und integriertem Audio-Player.</p>
-        </div>
-
-        <div class="feature-card fade-in">
-          <div class="feature-icon" style="background:#f0fff4;">&#128202;</div>
-          <h3>Anrufverlauf</h3>
-          <p>Vollst&auml;ndiger Call Detail Record mit Filter nach Quelle, Ziel und Status. Statistiken auf einen Blick.</p>
-        </div>
-
-        <div class="feature-card fade-in">
-          <div class="feature-icon" style="background:#ebf8ff;">&#128272;</div>
-          <h3>Benutzer &amp; Rollen</h3>
-          <p>Mehrbenutzersystem mit Admin- und User-Rollen. JWT-basierte Authentifizierung.</p>
-        </div>
-
-        <div class="feature-card fade-in">
-          <div class="feature-icon" style="background:#faf5ff;">&#128225;</div>
-          <h3>Live-Dashboard</h3>
-          <p>Echtzeit-&Uuml;bersicht: Asterisk-Status, registrierte Endpunkte, aktive Leitungen und letzte Anrufe per WebSocket.</p>
-        </div>
-
-        <a href="/sip-debug" class="feature-card fade-in" style="text-decoration:none;color:inherit;">
+        <a href="/sip-debug" class="feature-card feature-highlight fade-in" style="text-decoration:none;color:inherit;">
+          <span class="feature-badge">Neu</span>
           <div class="feature-icon" style="background:#fff5f7;">&#128269;</div>
           <h3>SIP Debug <span style="font-size:0.7em;color:#3182ce;">&rarr;</span></h3>
           <p>Live-Ansicht aller SIP-Nachrichten direkt im Browser. Nach Call-ID gruppiert, mit expandierbarem Roh-SIP-Text &ndash; ohne SSH.</p>
         </a>
 
-        <div class="feature-card fade-in">
-          <div class="feature-icon" style="background:#ebf8ff;">&#128244;</div>
-          <h3>Ausgehende Caller-ID</h3>
-          <p>Pro Nebenstelle w&auml;hlen, welche Rufnummer bei ausgehenden Anrufen angezeigt wird. Optional mit P-Asserted-Identity-Header.</p>
-        </div>
+        <a href="/rufnummern" class="feature-card fade-in" style="text-decoration:none;color:inherit;">
+          <div class="feature-icon" style="background:#faf5ff;">&#128224;</div>
+          <h3>Rufnummern-Zuordnung <span style="font-size:0.7em;color:#3182ce;">&rarr;</span></h3>
+          <p>Eingehende Rufnummern (DIDs) flexibel Nebenstellen zuordnen. Nummernblock-Verwaltung pro Trunk.</p>
+        </a>
 
-        <div class="feature-card fade-in">
+        <a href="/rufumleitungen" class="feature-card fade-in" style="text-decoration:none;color:inherit;">
+          <div class="feature-icon" style="background:#fffaf0;">&#128260;</div>
+          <h3>Rufumleitungen <span style="font-size:0.7em;color:#3182ce;">&rarr;</span></h3>
+          <p>Sofort-, Besetzt- und Nichtmelden-Weiterleitungen pro Nebenstelle. Aktivierung per Toggle.</p>
+        </a>
+
+        <a href="/voicemail" class="feature-card fade-in" style="text-decoration:none;color:inherit;">
+          <div class="feature-icon" style="background:#fff5f5;">&#128233;</div>
+          <h3>Voicemail <span style="font-size:0.7em;color:#3182ce;">&rarr;</span></h3>
+          <p>Voicemail-Mailbox pro Nebenstelle mit PIN, E-Mail-Benachrichtigung und integriertem Audio-Player.</p>
+        </a>
+
+        <a href="/anrufverlauf" class="feature-card fade-in" style="text-decoration:none;color:inherit;">
+          <div class="feature-icon" style="background:#f0fff4;">&#128202;</div>
+          <h3>Anrufverlauf <span style="font-size:0.7em;color:#3182ce;">&rarr;</span></h3>
+          <p>Vollst&auml;ndiger Call Detail Record mit Filter nach Quelle, Ziel und Status. Statistiken auf einen Blick.</p>
+        </a>
+
+        <a href="/benutzer-rollen" class="feature-card fade-in" style="text-decoration:none;color:inherit;">
+          <div class="feature-icon" style="background:#ebf8ff;">&#128272;</div>
+          <h3>Benutzer &amp; Rollen <span style="font-size:0.7em;color:#3182ce;">&rarr;</span></h3>
+          <p>Mehrbenutzersystem mit Admin- und User-Rollen. JWT-basierte Authentifizierung.</p>
+        </a>
+
+        <a href="/dashboard" class="feature-card fade-in" style="text-decoration:none;color:inherit;">
+          <div class="feature-icon" style="background:#faf5ff;">&#128225;</div>
+          <h3>Live-Dashboard <span style="font-size:0.7em;color:#3182ce;">&rarr;</span></h3>
+          <p>Echtzeit-&Uuml;bersicht: Asterisk-Status, registrierte Endpunkte, aktive Leitungen und letzte Anrufe per WebSocket.</p>
+        </a>
+
+        <a href="/outbound-caller-id" class="feature-card fade-in" style="text-decoration:none;color:inherit;">
+          <div class="feature-icon" style="background:#ebf8ff;">&#128244;</div>
+          <h3>Ausgehende Caller-ID <span style="font-size:0.7em;color:#3182ce;">&rarr;</span></h3>
+          <p>Pro Nebenstelle w&auml;hlen, welche Rufnummer bei ausgehenden Anrufen angezeigt wird. Optional mit P-Asserted-Identity-Header.</p>
+        </a>
+
+        <a href="/docker-deployment" class="feature-card fade-in" style="text-decoration:none;color:inherit;">
           <div class="feature-icon" style="background:#fffaf0;">&#128051;</div>
-          <h3>Docker Deployment</h3>
+          <h3>Docker Deployment <span style="font-size:0.7em;color:#3182ce;">&rarr;</span></h3>
           <p>Komplettes System per <code>docker compose up</code> in Minuten einsatzbereit. Automatischer Installer inklusive.</p>
-        </div>
+        </a>
       </div>
     </div>
   </section>

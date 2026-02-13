@@ -1,0 +1,146 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Benutzer & Rollen - Mehrbenutzersystem - GonoPBX" description="GonoPBX Benutzer & Rollen: Admin- und User-Rollen mit JWT-Authentifizierung. Profilbilder, Nebenstellen-Zuordnung und Willkommens-E-Mail.">
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="container">
+      <a href="/" class="nav-logo">
+        <img src="/logo.png" alt="GonoPBX Logo" />
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 12h18M3 6h18M3 18h18" />
+        </svg>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/#features">Features</a></li>
+        <li><a href="/#screenshots">Screenshots</a></li>
+        <li><a href="/#techstack">Technologie</a></li>
+        <li><a href="/#installation">Installation</a></li>
+        <li><a href="/release-notes">Release Notes</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/kontakt">Kontakt</a></li>
+        <li><a href="https://github.com/ankaios76/gonopbx" class="nav-cta">GitHub</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="blog-article">
+    <div class="container">
+      <a href="/#features" class="blog-back-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+        Zur&uuml;ck zur &Uuml;bersicht
+      </a>
+
+      <div class="blog-article-header">
+        <div class="blog-card-meta" style="justify-content:center;">
+          <span class="blog-card-tag">Feature</span>
+          <span>Seit v1.4.0</span>
+        </div>
+        <h1>Benutzer &amp; Rollen &ndash; Sicheres Mehrbenutzersystem</h1>
+      </div>
+
+      <div class="blog-article-content">
+
+        <p>
+          GonoPBX bietet ein <strong>vollst&auml;ndiges Benutzermanagement</strong> mit
+          Admin- und User-Rollen. Jeder Benutzer hat eigene Zugangsdaten, ein Profilbild
+          und wird einer oder mehreren Nebenstellen zugeordnet.
+        </p>
+
+        <h2>Funktionen</h2>
+
+        <ul>
+          <li><strong>Admin-Rolle</strong> &ndash; Vollzugriff auf alle Einstellungen, Benutzer, Trunks und System</li>
+          <li><strong>User-Rolle</strong> &ndash; Eingeschr&auml;nkter Zugriff auf eigene Nebenstelle, Voicemail und Anrufverlauf</li>
+          <li><strong>JWT-Authentifizierung</strong> &ndash; Sichere Token-basierte Anmeldung mit bcrypt-Passw&ouml;rtern</li>
+          <li><strong>Profilbild-Upload</strong> &ndash; Individuelles Avatar pro Benutzer</li>
+          <li><strong>Nebenstellen-Zuordnung</strong> &ndash; Jeder Benutzer wird einer Extension zugeordnet</li>
+          <li><strong>Willkommens-E-Mail</strong> &ndash; Neue Benutzer erhalten ihre Zugangsdaten per E-Mail</li>
+        </ul>
+
+        <h2>Screenshot</h2>
+
+        <div style="margin:32px 0;">
+          <img src="/feature-benutzer.png" alt="Benutzerverwaltung in GonoPBX" style="width:100%;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,0.1);" />
+          <p style="text-align:center;color:#718096;font-size:0.9rem;margin-top:8px;">Benutzerverwaltung mit Rollen und Nebenstellen-Zuordnung</p>
+        </div>
+
+        <h2>Rollenkonzept</h2>
+
+        <table style="width:100%;border-collapse:collapse;margin:24px 0;">
+          <thead>
+            <tr style="border-bottom:2px solid #e2e8f0;text-align:left;">
+              <th style="padding:12px 16px;color:#4a5568;">Bereich</th>
+              <th style="padding:12px 16px;color:#4a5568;">Admin</th>
+              <th style="padding:12px 16px;color:#4a5568;">User</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid #e2e8f0;">
+              <td style="padding:12px 16px;">Dashboard</td>
+              <td style="padding:12px 16px;">&#10003; Vollansicht</td>
+              <td style="padding:12px 16px;">&#10003; Eigene Daten</td>
+            </tr>
+            <tr style="border-bottom:1px solid #e2e8f0;">
+              <td style="padding:12px 16px;">Einstellungen</td>
+              <td style="padding:12px 16px;">&#10003; Alle Tabs</td>
+              <td style="padding:12px 16px;">&#10007; Kein Zugriff</td>
+            </tr>
+            <tr style="border-bottom:1px solid #e2e8f0;">
+              <td style="padding:12px 16px;">Anrufverlauf</td>
+              <td style="padding:12px 16px;">&#10003; Alle Anrufe</td>
+              <td style="padding:12px 16px;">&#10003; Eigene Anrufe</td>
+            </tr>
+            <tr style="border-bottom:1px solid #e2e8f0;">
+              <td style="padding:12px 16px;">Voicemail</td>
+              <td style="padding:12px 16px;">&#10003; Alle Mailboxen</td>
+              <td style="padding:12px 16px;">&#10003; Eigene Mailbox</td>
+            </tr>
+            <tr>
+              <td style="padding:12px 16px;">SIP Debug</td>
+              <td style="padding:12px 16px;">&#10003;</td>
+              <td style="padding:12px 16px;">&#10007;</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="blog-info-box">
+          <p>
+            <strong>Verf&uuml;gbar seit v1.4.0.</strong>
+            Das Benutzersystem nutzt JWT-Tokens mit automatischem Refresh.
+            Der erste Admin wird beim Installer automatisch angelegt.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <ul class="footer-links">
+        <li><a href="https://github.com/ankaios76/gonopbx">GitHub</a></li>
+        <li><a href="https://demo.gonopbx.de">Live-Demo</a></li>
+        <li><a href="/impressum">Impressum</a></li>
+        <li><a href="/datenschutz">Datenschutz</a></li>
+      </ul>
+      <p>&copy; 2026 Norbert Hengsteler. Alle Rechte vorbehalten.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('navToggle')?.addEventListener('click', () => {
+      document.getElementById('navLinks')?.classList.toggle('open');
+    });
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('navLinks')?.classList.remove('open');
+      });
+    });
+  </script>
+
+</Layout>

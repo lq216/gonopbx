@@ -419,6 +419,26 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://gonopbx.
         line-height: 1.6;
       }
 
+      .feature-highlight {
+        position: relative;
+        border-color: #3182ce;
+        box-shadow: 0 4px 16px rgba(49,130,206,0.12);
+      }
+
+      .feature-badge {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        background: linear-gradient(135deg, #3182ce, #2b6cb0);
+        color: #fff;
+        font-size: 0.7rem;
+        font-weight: 700;
+        padding: 3px 10px;
+        border-radius: 20px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
       @media (max-width: 768px) {
         .features-grid {
           grid-template-columns: 1fr;
@@ -1731,6 +1751,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://gonopbx.
 
       [data-theme="dark"] .feature-card p {
         color: #94a3b8;
+      }
+
+      [data-theme="dark"] .feature-highlight {
+        border-color: #3182ce;
+        box-shadow: 0 4px 16px rgba(49,130,206,0.2);
       }
 
       [data-theme="dark"] .feature-icon {

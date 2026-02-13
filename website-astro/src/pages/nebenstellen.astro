@@ -1,0 +1,153 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Nebenstellen verwalten - SIP-Accounts per Web-GUI - GonoPBX" description="GonoPBX Nebenstellen: SIP-Accounts anlegen, bearbeiten und l&ouml;schen. Caller-ID, Voicemail, Codecs und Rufumleitungen pro Extension konfigurieren.">
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="container">
+      <a href="/" class="nav-logo">
+        <img src="/logo.png" alt="GonoPBX Logo" />
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 12h18M3 6h18M3 18h18" />
+        </svg>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/#features">Features</a></li>
+        <li><a href="/#screenshots">Screenshots</a></li>
+        <li><a href="/#techstack">Technologie</a></li>
+        <li><a href="/#installation">Installation</a></li>
+        <li><a href="/release-notes">Release Notes</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/kontakt">Kontakt</a></li>
+        <li><a href="https://github.com/ankaios76/gonopbx" class="nav-cta">GitHub</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="blog-article">
+    <div class="container">
+      <a href="/#features" class="blog-back-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+        Zur&uuml;ck zur &Uuml;bersicht
+      </a>
+
+      <div class="blog-article-header">
+        <div class="blog-card-meta" style="justify-content:center;">
+          <span class="blog-card-tag">Feature</span>
+          <span>Kernfunktion</span>
+        </div>
+        <h1>Nebenstellen &ndash; SIP-Accounts per Web-GUI verwalten</h1>
+      </div>
+
+      <div class="blog-article-content">
+
+        <p>
+          Nebenstellen sind das Herzst&uuml;ck jeder Telefonanlage. In GonoPBX legst du
+          <strong>SIP-Accounts in Sekunden an</strong> &ndash; ohne Konfigurationsdateien zu editieren.
+          Jede &Auml;nderung wird sofort in die PJSIP-Konfiguration geschrieben und in Asterisk geladen.
+        </p>
+
+        <h2>Funktionen</h2>
+
+        <ul>
+          <li><strong>Anlegen &amp; L&ouml;schen</strong> &ndash; Neue Nebenstelle mit Nummer, Name, Passwort und Caller-ID in einem Formular</li>
+          <li><strong>Inline-Bearbeitung</strong> &ndash; Alle Felder direkt in der Tabelle &auml;ndern</li>
+          <li><strong>Aktivierung per Toggle</strong> &ndash; Nebenstellen ein- und ausschalten ohne L&ouml;schen</li>
+          <li><strong>Registrierungsstatus</strong> &ndash; Live-Anzeige ob ein Endger&auml;t registriert ist (gr&uuml;n/grau)</li>
+          <li><strong>Caller-ID</strong> &ndash; Individuelle Anzeigenummer pro Nebenstelle</li>
+          <li><strong>Voicemail</strong> &ndash; Mailbox mit PIN und E-Mail-Benachrichtigung pro Extension</li>
+          <li><strong>Codec-Auswahl</strong> &ndash; Globale Codecs oder individuelle Auswahl pro Nebenstelle</li>
+          <li><strong>Kontext</strong> &ndash; Dialplan-Kontext (intern, extern) pro Extension konfigurierbar</li>
+        </ul>
+
+        <h2>Screenshot</h2>
+
+        <div style="margin:32px 0;">
+          <img src="/feature-nebenstellen.png" alt="Nebenstellen-Verwaltung in GonoPBX" style="width:100%;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,0.1);" />
+          <p style="text-align:center;color:#718096;font-size:0.9rem;margin-top:8px;">Nebenstellen-Tabelle mit Registrierungsstatus und Inline-Bearbeitung</p>
+        </div>
+
+        <h2>Wie funktioniert es technisch?</h2>
+
+        <p>
+          GonoPBX speichert die Nebenstellen-Konfiguration in einer <strong>PostgreSQL-Datenbank</strong>.
+          Bei jeder &Auml;nderung wird die <code>pjsip.conf</code> automatisch neu generiert und
+          &uuml;ber den AMI-Befehl <code>pjsip reload</code> in Asterisk geladen &ndash;
+          ohne Neustart, ohne Unterbrechung laufender Gespr&auml;che.
+        </p>
+
+        <ul>
+          <li><strong>PJSIP-Stack</strong> &ndash; Modernes SIP-Protokoll mit Endpoint/Auth/AOR-Trennung</li>
+          <li><strong>Automatische Config-Generierung</strong> &ndash; Kein manuelles Editieren von Konfigdateien</li>
+          <li><strong>Hot-Reload</strong> &ndash; &Auml;nderungen sofort wirksam ohne Asterisk-Neustart</li>
+        </ul>
+
+        <h2>Typische Einrichtung</h2>
+
+        <table style="width:100%;border-collapse:collapse;margin:24px 0;">
+          <thead>
+            <tr style="border-bottom:2px solid #e2e8f0;text-align:left;">
+              <th style="padding:12px 16px;color:#4a5568;">Schritt</th>
+              <th style="padding:12px 16px;color:#4a5568;">Aktion</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid #e2e8f0;">
+              <td style="padding:12px 16px;">1</td>
+              <td style="padding:12px 16px;">Einstellungen &rarr; Nebenstellen &rarr; &bdquo;Neue Nebenstelle&ldquo;</td>
+            </tr>
+            <tr style="border-bottom:1px solid #e2e8f0;">
+              <td style="padding:12px 16px;">2</td>
+              <td style="padding:12px 16px;">Nummer (z.B. 1001), Name und SIP-Passwort vergeben</td>
+            </tr>
+            <tr style="border-bottom:1px solid #e2e8f0;">
+              <td style="padding:12px 16px;">3</td>
+              <td style="padding:12px 16px;">Optional: Caller-ID, Voicemail-PIN, Codecs konfigurieren</td>
+            </tr>
+            <tr>
+              <td style="padding:12px 16px;">4</td>
+              <td style="padding:12px 16px;">SIP-Telefon oder Softphone mit den Zugangsdaten einrichten</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="blog-info-box">
+          <p>
+            <strong>Seit der ersten Version verf&uuml;gbar.</strong>
+            Nebenstellen sind eine Kernfunktion von GonoPBX und werden mit jedem Release weiterentwickelt.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <ul class="footer-links">
+        <li><a href="https://github.com/ankaios76/gonopbx">GitHub</a></li>
+        <li><a href="https://demo.gonopbx.de">Live-Demo</a></li>
+        <li><a href="/impressum">Impressum</a></li>
+        <li><a href="/datenschutz">Datenschutz</a></li>
+      </ul>
+      <p>&copy; 2026 Norbert Hengsteler. Alle Rechte vorbehalten.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('navToggle')?.addEventListener('click', () => {
+      document.getElementById('navLinks')?.classList.toggle('open');
+    });
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('navLinks')?.classList.remove('open');
+      });
+    });
+  </script>
+
+</Layout>

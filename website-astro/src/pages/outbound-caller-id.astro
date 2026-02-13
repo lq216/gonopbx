@@ -1,0 +1,143 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Ausgehende Caller-ID - Rufnummer w&auml;hlen - GonoPBX" description="GonoPBX Outbound Caller-ID: Pro Nebenstelle w&auml;hlen, welche Rufnummer bei ausgehenden Anrufen angezeigt wird. Mit P-Asserted-Identity-Header.">
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="container">
+      <a href="/" class="nav-logo">
+        <img src="/logo.png" alt="GonoPBX Logo" />
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 12h18M3 6h18M3 18h18" />
+        </svg>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/#features">Features</a></li>
+        <li><a href="/#screenshots">Screenshots</a></li>
+        <li><a href="/#techstack">Technologie</a></li>
+        <li><a href="/#installation">Installation</a></li>
+        <li><a href="/release-notes">Release Notes</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/kontakt">Kontakt</a></li>
+        <li><a href="https://github.com/ankaios76/gonopbx" class="nav-cta">GitHub</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="blog-article">
+    <div class="container">
+      <a href="/#features" class="blog-back-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+        Zur&uuml;ck zur &Uuml;bersicht
+      </a>
+
+      <div class="blog-article-header">
+        <div class="blog-card-meta" style="justify-content:center;">
+          <span class="blog-card-tag">Feature</span>
+          <span>Seit v1.6.0</span>
+        </div>
+        <h1>Ausgehende Caller-ID &ndash; Rufnummer pro Nebenstelle w&auml;hlen</h1>
+      </div>
+
+      <div class="blog-article-content">
+
+        <p>
+          Hat eine Nebenstelle <strong>mehrere Rufnummern</strong>, kann ab v1.6.0
+          gew&auml;hlt werden, welche DID bei ausgehenden Anrufen als Caller-ID gesendet wird.
+          Zus&auml;tzlich l&auml;sst sich ein <strong>P-Asserted-Identity-Header</strong>
+          pro Nebenstelle konfigurieren.
+        </p>
+
+        <h2>Funktionen</h2>
+
+        <ul>
+          <li><strong>Caller-ID-Auswahl</strong> &ndash; Dropdown mit allen zugeordneten DIDs der Nebenstelle</li>
+          <li><strong>P-Asserted-Identity</strong> &ndash; Optionaler PAI-Header f&uuml;r Provider die das unterst&uuml;tzen</li>
+          <li><strong>Pro Nebenstelle</strong> &ndash; Jede Extension hat ihre eigene Konfiguration</li>
+          <li><strong>Sofort wirksam</strong> &ndash; &Auml;nderungen gelten ab dem n&auml;chsten ausgehenden Anruf</li>
+        </ul>
+
+        <h2>Screenshot</h2>
+
+        <div style="margin:32px 0;">
+          <img src="/feature-outbound-cid.png" alt="Ausgehende Caller-ID in GonoPBX" style="width:100%;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,0.1);" />
+          <p style="text-align:center;color:#718096;font-size:0.9rem;margin-top:8px;">Caller-ID-Auswahl und PAI-Header pro Nebenstelle</p>
+        </div>
+
+        <h2>Wann brauche ich das?</h2>
+
+        <table style="width:100%;border-collapse:collapse;margin:24px 0;">
+          <thead>
+            <tr style="border-bottom:2px solid #e2e8f0;text-align:left;">
+              <th style="padding:12px 16px;color:#4a5568;">Szenario</th>
+              <th style="padding:12px 16px;color:#4a5568;">L&ouml;sung</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid #e2e8f0;">
+              <td style="padding:12px 16px;">Mitarbeiter soll mit Firmennummer anrufen</td>
+              <td style="padding:12px 16px;">Haupt-DID als Caller-ID setzen</td>
+            </tr>
+            <tr style="border-bottom:1px solid #e2e8f0;">
+              <td style="padding:12px 16px;">Abteilungen mit eigener Durchwahl</td>
+              <td style="padding:12px 16px;">Abteilungs-DID als Caller-ID w&auml;hlen</td>
+            </tr>
+            <tr style="border-bottom:1px solid #e2e8f0;">
+              <td style="padding:12px 16px;">Provider verlangt PAI-Header</td>
+              <td style="padding:12px 16px;">P-Asserted-Identity pro Extension setzen</td>
+            </tr>
+            <tr>
+              <td style="padding:12px 16px;">Nummernblock mit Durchwahlen</td>
+              <td style="padding:12px 16px;">Jede Nebenstelle w&auml;hlt ihre Durchwahl</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>Technische Details</h2>
+
+        <p>
+          Die gew&auml;hlte Caller-ID wird im Dialplan als <code>CALLERID(num)</code> gesetzt,
+          bevor der Anruf &uuml;ber den Trunk rausgeht. Der PAI-Header wird als
+          zus&auml;tzlicher SIP-Header im INVITE mitgeschickt.
+        </p>
+
+        <div class="blog-info-box">
+          <p>
+            <strong>Verf&uuml;gbar ab Version 1.6.0.</strong>
+            Update &uuml;ber <em>Einstellungen &rarr; Server &rarr; Update</em> oder manuell mit
+            <code>git pull &amp;&amp; docker compose up -d --build</code>.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <ul class="footer-links">
+        <li><a href="https://github.com/ankaios76/gonopbx">GitHub</a></li>
+        <li><a href="https://demo.gonopbx.de">Live-Demo</a></li>
+        <li><a href="/impressum">Impressum</a></li>
+        <li><a href="/datenschutz">Datenschutz</a></li>
+      </ul>
+      <p>&copy; 2026 Norbert Hengsteler. Alle Rechte vorbehalten.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('navToggle')?.addEventListener('click', () => {
+      document.getElementById('navLinks')?.classList.toggle('open');
+    });
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('navLinks')?.classList.remove('open');
+      });
+    });
+  </script>
+
+</Layout>
