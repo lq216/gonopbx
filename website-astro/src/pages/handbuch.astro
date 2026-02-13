@@ -1,0 +1,562 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Admin-Handbuch - GonoPBX" description="Praxisorientiertes Admin-Handbuch f&uuml;r GonoPBX. Schritt-f&uuml;r-Schritt-Anleitungen f&uuml;r Nebenstellen, SIP-Trunks, Rufnummern, Voicemail, Sicherheit und mehr.">
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="container">
+      <a href="/" class="nav-logo">
+        <img src="/logo.png" alt="GonoPBX Logo" />
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 12h18M3 6h18M3 18h18" />
+        </svg>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/#features">Features</a></li>
+        <li><a href="/#screenshots">Screenshots</a></li>
+        <li><a href="/#techstack">Technologie</a></li>
+        <li><a href="/#installation">Installation</a></li>
+        <li><a href="/release-notes">Release Notes</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/handbuch">Handbuch</a></li>
+        <li><a href="/kontakt">Kontakt</a></li>
+        <li><a href="https://github.com/ankaios76/gonopbx" class="nav-cta">GitHub</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="blog-article">
+    <div class="container">
+      <a href="/" class="blog-back-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+        Zur&uuml;ck zur Startseite
+      </a>
+
+      <div class="blog-article-header">
+        <div class="blog-card-meta" style="justify-content:center;">
+          <span class="blog-card-tag">Dokumentation</span>
+          <span>Admin-Handbuch</span>
+        </div>
+        <h1>Admin-Handbuch</h1>
+        <p style="color:#718096;margin-top:8px;">Schritt-f&uuml;r-Schritt-Anleitungen f&uuml;r die wichtigsten Aufgaben in GonoPBX.</p>
+        <div class="hero-buttons" style="justify-content:center;margin:24px 0 0 0;">
+          <a href="/admin-handbuch.pdf" class="btn-primary" download>Handbuch (PDF)</a>
+          <a href="/admin-handbuch.md" class="btn-secondary" download>Markdown herunterladen</a>
+        </div>
+      </div>
+
+      <div class="blog-article-content">
+
+        <!-- Inhaltsverzeichnis -->
+        <div class="blog-info-box">
+          <p><strong>Inhaltsverzeichnis</strong></p>
+          <ol style="margin:12px 0 0 0;padding-left:20px;line-height:2;">
+            <li><a href="#erste-schritte">Erste Schritte nach der Installation</a></li>
+            <li><a href="#nebenstelle-anlegen">Nebenstelle anlegen</a></li>
+            <li><a href="#sip-trunk">SIP-Trunk einrichten</a></li>
+            <li><a href="#rufnummern">Rufnummern zuordnen</a></li>
+            <li><a href="#rufumleitung">Rufumleitung konfigurieren</a></li>
+            <li><a href="#voicemail">Voicemail einrichten</a></li>
+            <li><a href="#benutzer">Benutzer anlegen</a></li>
+            <li><a href="#sicherheit">Sicherheit</a></li>
+            <li><a href="#sip-debug">SIP Debug nutzen</a></li>
+            <li><a href="#update">System-Update durchf&uuml;hren</a></li>
+          </ol>
+        </div>
+
+        <!-- Kapitel 1 -->
+        <h2 id="erste-schritte">1. Erste Schritte nach der Installation</h2>
+
+        <p>
+          Nach der Installation &uuml;ber den Installer (<code>./install.sh</code>) ist GonoPBX sofort einsatzbereit.
+          Der Installer zeigt dir am Ende die Admin-Zugangsdaten an.
+        </p>
+
+        <h3>Login</h3>
+        <ol>
+          <li>&Ouml;ffne deinen Browser und navigiere zu <code>https://deine-server-ip:3000</code></li>
+          <li>Melde dich mit dem Benutzernamen <strong>admin</strong> und dem generierten Passwort an</li>
+          <li>Nach dem Login landest du auf dem <strong>Dashboard</strong></li>
+        </ol>
+
+        <h3>Dashboard-&Uuml;bersicht</h3>
+        <p>Das Dashboard zeigt dir auf einen Blick:</p>
+        <ul>
+          <li><strong>Asterisk-Status</strong> &ndash; Ob der PBX-Dienst l&auml;uft und welche Version installiert ist</li>
+          <li><strong>Registrierte Endpunkte</strong> &ndash; Welche Telefone/Softphones aktuell verbunden sind</li>
+          <li><strong>Aktive Leitungen</strong> &ndash; SIP-Trunk-Status (registriert/nicht registriert)</li>
+          <li><strong>Letzte Anrufe</strong> &ndash; Die letzten ein- und ausgehenden Gespr&auml;che</li>
+        </ul>
+
+        <h3>Wichtigste Men&uuml;punkte</h3>
+        <table style="width:100%;border-collapse:collapse;margin:24px 0;">
+          <thead>
+            <tr style="border-bottom:2px solid #e2e8f0;text-align:left;">
+              <th style="padding:12px 16px;color:#4a5568;">Men&uuml;punkt</th>
+              <th style="padding:12px 16px;color:#4a5568;">Funktion</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid #e2e8f0;">
+              <td style="padding:12px 16px;"><strong>Dashboard</strong></td>
+              <td style="padding:12px 16px;">Live-&Uuml;bersicht &uuml;ber das System</td>
+            </tr>
+            <tr style="border-bottom:1px solid #e2e8f0;">
+              <td style="padding:12px 16px;"><strong>Rufnummern</strong></td>
+              <td style="padding:12px 16px;">Eingehende Nummern (DIDs) verwalten und zuordnen</td>
+            </tr>
+            <tr style="border-bottom:1px solid #e2e8f0;">
+              <td style="padding:12px 16px;"><strong>Rufumleitungen</strong></td>
+              <td style="padding:12px 16px;">Weiterleitungen pro Nebenstelle konfigurieren</td>
+            </tr>
+            <tr style="border-bottom:1px solid #e2e8f0;">
+              <td style="padding:12px 16px;"><strong>Voicemail</strong></td>
+              <td style="padding:12px 16px;">Sprachnachrichten abh&ouml;ren und verwalten</td>
+            </tr>
+            <tr style="border-bottom:1px solid #e2e8f0;">
+              <td style="padding:12px 16px;"><strong>Anrufverlauf</strong></td>
+              <td style="padding:12px 16px;">Call Detail Records mit Filter und Statistiken</td>
+            </tr>
+            <tr style="border-bottom:1px solid #e2e8f0;">
+              <td style="padding:12px 16px;"><strong>SIP Debug</strong></td>
+              <td style="padding:12px 16px;">Live-SIP-Nachrichten im Browser analysieren</td>
+            </tr>
+            <tr>
+              <td style="padding:12px 16px;"><strong>Einstellungen</strong></td>
+              <td style="padding:12px 16px;">Nebenstellen, Leitungen, Benutzer, E-Mail, Audio, Sicherheit, Server</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Kapitel 2 -->
+        <h2 id="nebenstelle-anlegen">2. Nebenstelle anlegen</h2>
+
+        <p>
+          Nebenstellen sind SIP-Accounts, die du Telefonen oder Softphones zuweist.
+          Jede Nebenstelle hat eine eigene Nummer, ein SIP-Passwort und eine Caller-ID.
+        </p>
+
+        <h3>Neue Nebenstelle erstellen</h3>
+        <ol>
+          <li>Gehe zu <strong>Einstellungen &rarr; Nebenstellen</strong></li>
+          <li>Klicke auf <strong>&bdquo;Neue Nebenstelle&ldquo;</strong></li>
+          <li>F&uuml;lle die Felder aus:
+            <ul>
+              <li><strong>Nummer</strong> &ndash; z.B. 1001, 1002 (muss eindeutig sein)</li>
+              <li><strong>Name</strong> &ndash; z.B. &bdquo;B&uuml;ro&ldquo; oder &bdquo;Max Mustermann&ldquo;</li>
+              <li><strong>Passwort</strong> &ndash; SIP-Passwort (wird automatisch generiert, kann ge&auml;ndert werden)</li>
+              <li><strong>Caller-ID</strong> &ndash; Anzeigename bei internen Anrufen</li>
+            </ul>
+          </li>
+          <li>Klicke auf <strong>&bdquo;Speichern&ldquo;</strong></li>
+        </ol>
+
+        <h3>Softphone oder Telefon konfigurieren</h3>
+        <p>Richte dein Endger&auml;t mit diesen Daten ein:</p>
+        <table style="width:100%;border-collapse:collapse;margin:24px 0;">
+          <thead>
+            <tr style="border-bottom:2px solid #e2e8f0;text-align:left;">
+              <th style="padding:12px 16px;color:#4a5568;">Feld</th>
+              <th style="padding:12px 16px;color:#4a5568;">Wert</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid #e2e8f0;">
+              <td style="padding:12px 16px;">SIP-Server</td>
+              <td style="padding:12px 16px;">IP-Adresse deines GonoPBX-Servers</td>
+            </tr>
+            <tr style="border-bottom:1px solid #e2e8f0;">
+              <td style="padding:12px 16px;">Benutzername</td>
+              <td style="padding:12px 16px;">Nebenstellen-Nummer (z.B. 1001)</td>
+            </tr>
+            <tr style="border-bottom:1px solid #e2e8f0;">
+              <td style="padding:12px 16px;">Passwort</td>
+              <td style="padding:12px 16px;">SIP-Passwort der Nebenstelle</td>
+            </tr>
+            <tr>
+              <td style="padding:12px 16px;">Transport</td>
+              <td style="padding:12px 16px;">UDP (Standard-Port 5060)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="blog-info-box">
+          <p>
+            <strong>Tipp:</strong> Der Registrierungsstatus wird im Dashboard und unter Einstellungen &rarr; Nebenstellen
+            live angezeigt (gr&uuml;ner Punkt = registriert).
+          </p>
+        </div>
+
+        <!-- Kapitel 3 -->
+        <h2 id="sip-trunk">3. SIP-Trunk einrichten</h2>
+
+        <p>
+          Ein SIP-Trunk verbindet deine Telefonanlage mit einem SIP-Provider,
+          damit du &uuml;ber das &ouml;ffentliche Telefonnetz telefonieren kannst.
+        </p>
+
+        <h3>Neuen Trunk anlegen</h3>
+        <ol>
+          <li>Gehe zu <strong>Einstellungen &rarr; Leitungen</strong></li>
+          <li>Klicke auf <strong>&bdquo;Neuer Trunk&ldquo;</strong></li>
+          <li>Gib die Provider-Daten ein:
+            <ul>
+              <li><strong>Name</strong> &ndash; z.B. &bdquo;Plusnet&ldquo; oder &bdquo;sipgate&ldquo;</li>
+              <li><strong>SIP-Server</strong> &ndash; Registrar-Adresse des Providers</li>
+              <li><strong>Benutzername</strong> &ndash; SIP-Benutzername vom Provider</li>
+              <li><strong>Passwort</strong> &ndash; SIP-Passwort vom Provider</li>
+            </ul>
+          </li>
+          <li>Klicke auf <strong>&bdquo;Speichern&ldquo;</strong></li>
+        </ol>
+
+        <h3>Registrierungsstatus pr&uuml;fen</h3>
+        <p>
+          Nach dem Speichern registriert sich GonoPBX automatisch beim Provider.
+          Den Status siehst du:
+        </p>
+        <ul>
+          <li>Im <strong>Dashboard</strong> unter &bdquo;Aktive Leitungen&ldquo;</li>
+          <li>Unter <strong>Einstellungen &rarr; Leitungen</strong> (gr&uuml;n = registriert, rot = Fehler)</li>
+        </ul>
+
+        <div class="blog-info-box">
+          <p>
+            <strong>Tipp:</strong> Wenn die Registrierung fehlschl&auml;gt, pr&uuml;fe die Zugangsdaten
+            und stelle sicher, dass der SIP-Port (5060 UDP) in deiner Firewall ge&ouml;ffnet ist.
+            Nutze den <a href="#sip-debug">SIP Debug</a> f&uuml;r die Fehleranalyse.
+          </p>
+        </div>
+
+        <!-- Kapitel 4 -->
+        <h2 id="rufnummern">4. Rufnummern zuordnen</h2>
+
+        <p>
+          Eingehende Rufnummern (DIDs) m&uuml;ssen Nebenstellen zugeordnet werden,
+          damit Anrufe an die richtigen Telefone weitergeleitet werden.
+        </p>
+
+        <h3>DIDs importieren</h3>
+        <ol>
+          <li>Gehe zu <strong>Rufnummern</strong> im Hauptmen&uuml;</li>
+          <li>Klicke auf <strong>&bdquo;Rufnummer hinzuf&uuml;gen&ldquo;</strong></li>
+          <li>Gib die Rufnummer im Format <code>+49xxx</code> ein</li>
+          <li>W&auml;hle den zugeordneten <strong>Trunk</strong></li>
+        </ol>
+
+        <h3>Rufnummer einer Nebenstelle zuweisen</h3>
+        <ol>
+          <li>W&auml;hle die gew&uuml;nschte Rufnummer in der Liste</li>
+          <li>Ordne sie &uuml;ber das Dropdown einer <strong>Nebenstelle</strong> zu</li>
+          <li>Die &Auml;nderung wird sofort wirksam</li>
+        </ol>
+
+        <h3>Ausgehende Caller-ID konfigurieren</h3>
+        <p>
+          Unter <strong>Einstellungen &rarr; Nebenstellen</strong> kannst du pro Nebenstelle festlegen,
+          welche Rufnummer bei ausgehenden Anrufen angezeigt wird. Optional kann der
+          <code>P-Asserted-Identity</code>-Header f&uuml;r Provider genutzt werden, die dies erfordern.
+        </p>
+
+        <!-- Kapitel 5 -->
+        <h2 id="rufumleitung">5. Rufumleitung konfigurieren</h2>
+
+        <p>
+          Rufumleitungen leiten eingehende Anrufe an andere Ziele weiter &ndash;
+          z.B. an ein Mobiltelefon, eine andere Nebenstelle oder eine Voicemail.
+        </p>
+
+        <h3>Umleitungsarten</h3>
+        <table style="width:100%;border-collapse:collapse;margin:24px 0;">
+          <thead>
+            <tr style="border-bottom:2px solid #e2e8f0;text-align:left;">
+              <th style="padding:12px 16px;color:#4a5568;">Typ</th>
+              <th style="padding:12px 16px;color:#4a5568;">Beschreibung</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid #e2e8f0;">
+              <td style="padding:12px 16px;"><strong>Sofort</strong></td>
+              <td style="padding:12px 16px;">Alle Anrufe werden sofort umgeleitet, ohne dass das Telefon klingelt</td>
+            </tr>
+            <tr style="border-bottom:1px solid #e2e8f0;">
+              <td style="padding:12px 16px;"><strong>Besetzt</strong></td>
+              <td style="padding:12px 16px;">Umleitung nur, wenn die Nebenstelle besetzt ist</td>
+            </tr>
+            <tr>
+              <td style="padding:12px 16px;"><strong>Nichtmelden</strong></td>
+              <td style="padding:12px 16px;">Umleitung nach einer bestimmten Anzahl Klingelzeichen (Timeout)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Rufumleitung einrichten</h3>
+        <ol>
+          <li>Gehe zu <strong>Rufumleitungen</strong> im Hauptmen&uuml;</li>
+          <li>W&auml;hle die <strong>Nebenstelle</strong>, f&uuml;r die du eine Umleitung einrichten m&ouml;chtest</li>
+          <li>W&auml;hle den <strong>Typ</strong> (Sofort, Besetzt oder Nichtmelden)</li>
+          <li>Gib das <strong>Ziel</strong> ein &ndash; eine interne Nebenstelle (z.B. <code>1002</code>) oder eine externe Nummer (z.B. <code>0171xxxxxxx</code>)</li>
+          <li>Aktiviere die Umleitung per <strong>Toggle</strong></li>
+        </ol>
+
+        <div class="blog-info-box">
+          <p>
+            <strong>Tipp:</strong> Du kannst mehrere Umleitungsarten gleichzeitig konfigurieren.
+            Zum Beispiel: Nichtmelden &rarr; Voicemail und Besetzt &rarr; Mobiltelefon.
+          </p>
+        </div>
+
+        <!-- Kapitel 6 -->
+        <h2 id="voicemail">6. Voicemail einrichten</h2>
+
+        <p>
+          Voicemail erm&ouml;glicht es Anrufern, eine Sprachnachricht zu hinterlassen,
+          wenn eine Nebenstelle nicht erreichbar ist. Die Nachricht kann per E-Mail zugestellt werden.
+        </p>
+
+        <h3>SMTP-Server konfigurieren</h3>
+        <p>Damit Voicemail-Benachrichtigungen per E-Mail funktionieren, muss zuerst ein SMTP-Server eingerichtet werden:</p>
+        <ol>
+          <li>Gehe zu <strong>Einstellungen &rarr; E-Mail</strong></li>
+          <li>Gib die SMTP-Daten ein:
+            <ul>
+              <li><strong>SMTP-Server</strong> &ndash; z.B. <code>smtp.gmail.com</code></li>
+              <li><strong>Port</strong> &ndash; z.B. <code>587</code> (TLS) oder <code>465</code> (SSL)</li>
+              <li><strong>Benutzername</strong> und <strong>Passwort</strong></li>
+              <li><strong>Absender-Adresse</strong></li>
+            </ul>
+          </li>
+          <li>Klicke auf <strong>&bdquo;Test-E-Mail senden&ldquo;</strong>, um die Konfiguration zu pr&uuml;fen</li>
+        </ol>
+
+        <h3>Voicemail pro Nebenstelle aktivieren</h3>
+        <ol>
+          <li>Gehe zu <strong>Einstellungen &rarr; Nebenstellen</strong></li>
+          <li>Bearbeite die gew&uuml;nschte Nebenstelle</li>
+          <li>Aktiviere <strong>Voicemail</strong></li>
+          <li>Setze eine <strong>PIN</strong> (f&uuml;r den Telefonzugang zur Mailbox)</li>
+          <li>Gib die <strong>E-Mail-Adresse</strong> ein, an die Benachrichtigungen geschickt werden</li>
+        </ol>
+
+        <div class="blog-info-box">
+          <p>
+            <strong>Hinweis:</strong> Sprachnachrichten k&ouml;nnen auch direkt in der Web-GUI
+            unter <strong>Voicemail</strong> im Hauptmen&uuml; angeh&ouml;rt und verwaltet werden.
+          </p>
+        </div>
+
+        <!-- Kapitel 7 -->
+        <h2 id="benutzer">7. Benutzer anlegen</h2>
+
+        <p>
+          GonoPBX unterst&uuml;tzt mehrere Benutzer mit unterschiedlichen Rollen.
+          Admins haben vollen Zugriff, normale Benutzer sehen nur ihre eigene Nebenstelle.
+        </p>
+
+        <h3>Neuen Benutzer erstellen</h3>
+        <ol>
+          <li>Gehe zu <strong>Einstellungen &rarr; Benutzer</strong></li>
+          <li>Klicke auf <strong>&bdquo;Neuer Benutzer&ldquo;</strong></li>
+          <li>F&uuml;lle die Felder aus:
+            <ul>
+              <li><strong>Benutzername</strong> &ndash; Login-Name</li>
+              <li><strong>Passwort</strong> &ndash; Wird automatisch generiert</li>
+              <li><strong>Rolle</strong> &ndash; <code>admin</code> oder <code>user</code></li>
+              <li><strong>Nebenstelle</strong> &ndash; Zuordnung zu einer bestehenden Extension</li>
+            </ul>
+          </li>
+          <li>Klicke auf <strong>&bdquo;Speichern&ldquo;</strong></li>
+        </ol>
+
+        <h3>Rollen im Vergleich</h3>
+        <table style="width:100%;border-collapse:collapse;margin:24px 0;">
+          <thead>
+            <tr style="border-bottom:2px solid #e2e8f0;text-align:left;">
+              <th style="padding:12px 16px;color:#4a5568;">Bereich</th>
+              <th style="padding:12px 16px;color:#4a5568;">Admin</th>
+              <th style="padding:12px 16px;color:#4a5568;">User</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid #e2e8f0;">
+              <td style="padding:12px 16px;">Dashboard</td>
+              <td style="padding:12px 16px;">Vollst&auml;ndig</td>
+              <td style="padding:12px 16px;">Eingeschr&auml;nkt</td>
+            </tr>
+            <tr style="border-bottom:1px solid #e2e8f0;">
+              <td style="padding:12px 16px;">Einstellungen</td>
+              <td style="padding:12px 16px;">Alle Tabs</td>
+              <td style="padding:12px 16px;">Kein Zugriff</td>
+            </tr>
+            <tr style="border-bottom:1px solid #e2e8f0;">
+              <td style="padding:12px 16px;">Anrufverlauf</td>
+              <td style="padding:12px 16px;">Alle Anrufe</td>
+              <td style="padding:12px 16px;">Nur eigene</td>
+            </tr>
+            <tr>
+              <td style="padding:12px 16px;">Voicemail</td>
+              <td style="padding:12px 16px;">Alle Mailboxen</td>
+              <td style="padding:12px 16px;">Nur eigene</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Kapitel 8 -->
+        <h2 id="sicherheit">8. Sicherheit</h2>
+
+        <p>
+          GonoPBX bietet mehrere Sicherheitsfunktionen, um deine Telefonanlage
+          vor unbefugtem Zugriff und Missbrauch zu sch&uuml;tzen.
+        </p>
+
+        <h3>IP-Whitelist f&uuml;r SIP</h3>
+        <ol>
+          <li>Gehe zu <strong>Einstellungen &rarr; Sicherheit</strong></li>
+          <li>Unter <strong>&bdquo;IP-Whitelist&ldquo;</strong> kannst du IP-Adressen oder CIDR-Bereiche hinzuf&uuml;gen</li>
+          <li>Nur freigegebene IPs k&ouml;nnen sich als SIP-Endpunkt registrieren</li>
+        </ol>
+
+        <h3>Fail2Ban</h3>
+        <p>
+          Fail2Ban sch&uuml;tzt vor Brute-Force-Angriffen, indem es IP-Adressen nach
+          zu vielen fehlgeschlagenen Anmeldeversuchen automatisch sperrt.
+        </p>
+        <ul>
+          <li><strong>Jails</strong> &ndash; &Uuml;bersicht der aktiven Fail2Ban-Jails (z.B. <code>asterisk</code>)</li>
+          <li><strong>Aktive Bans</strong> &ndash; Aktuell gesperrte IP-Adressen anzeigen</li>
+          <li><strong>Entbannen</strong> &ndash; Per Klick eine gesperrte IP wieder freigeben</li>
+        </ul>
+
+        <h3>Passwort-St&auml;rke pr&uuml;fen</h3>
+        <p>
+          Unter <strong>Einstellungen &rarr; Sicherheit</strong> zeigt dir GonoPBX eine &Uuml;bersicht
+          aller Nebenstellen mit schwachen SIP-Passw&ouml;rtern. Schwache Passw&ouml;rter werden
+          rot markiert und sollten sofort ge&auml;ndert werden.
+        </p>
+
+        <div class="blog-info-box">
+          <p>
+            <strong>Wichtig:</strong> Verwende immer starke, zuf&auml;llig generierte SIP-Passw&ouml;rter.
+            Schwache Passw&ouml;rter sind das h&auml;ufigste Einfallstor f&uuml;r SIP-Missbrauch (Toll Fraud).
+          </p>
+        </div>
+
+        <!-- Kapitel 9 -->
+        <h2 id="sip-debug">9. SIP Debug nutzen</h2>
+
+        <p>
+          Der integrierte SIP Debug zeigt dir alle SIP-Nachrichten in Echtzeit &ndash;
+          direkt im Browser, ohne SSH-Zugang.
+        </p>
+
+        <h3>Capture aktivieren</h3>
+        <ol>
+          <li>Gehe zu <strong>SIP Debug</strong> im Hauptmen&uuml;</li>
+          <li>Klicke auf <strong>&bdquo;Capture starten&ldquo;</strong></li>
+          <li>F&uuml;hre den problematischen Anruf durch</li>
+          <li>Stoppe die Aufzeichnung</li>
+        </ol>
+
+        <h3>SIP-Nachrichten lesen</h3>
+        <p>
+          Die aufgezeichneten SIP-Nachrichten werden nach <strong>Call-ID</strong> gruppiert.
+          Klicke auf einen Eintrag, um den vollst&auml;ndigen SIP-Text zu sehen:
+        </p>
+        <ul>
+          <li><strong>INVITE</strong> &ndash; Anrufaufbau (enth&auml;lt From, To, SDP)</li>
+          <li><strong>100 Trying / 180 Ringing / 200 OK</strong> &ndash; Antworten des Ziels</li>
+          <li><strong>BYE</strong> &ndash; Gespr&auml;chsende</li>
+          <li><strong>REGISTER</strong> &ndash; Registrierungsversuche</li>
+        </ul>
+
+        <h3>Typische Probleme diagnostizieren</h3>
+        <table style="width:100%;border-collapse:collapse;margin:24px 0;">
+          <thead>
+            <tr style="border-bottom:2px solid #e2e8f0;text-align:left;">
+              <th style="padding:12px 16px;color:#4a5568;">Symptom</th>
+              <th style="padding:12px 16px;color:#4a5568;">Worauf achten</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid #e2e8f0;">
+              <td style="padding:12px 16px;">Kein Klingeln</td>
+              <td style="padding:12px 16px;">Kommt ein INVITE an? Antwortet das Ziel mit 180?</td>
+            </tr>
+            <tr style="border-bottom:1px solid #e2e8f0;">
+              <td style="padding:12px 16px;">Einseitiger Ton</td>
+              <td style="padding:12px 16px;">SDP pr&uuml;fen &ndash; stimmen die IP-Adressen und Ports?</td>
+            </tr>
+            <tr style="border-bottom:1px solid #e2e8f0;">
+              <td style="padding:12px 16px;">Registrierung schl&auml;gt fehl</td>
+              <td style="padding:12px 16px;">REGISTER &rarr; 401 &rarr; REGISTER mit Auth &rarr; 200 OK erwartet</td>
+            </tr>
+            <tr>
+              <td style="padding:12px 16px;">Anruf bricht ab</td>
+              <td style="padding:12px 16px;">Nach BYE suchen &ndash; wer beendet den Anruf und warum?</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Kapitel 10 -->
+        <h2 id="update">10. System-Update durchf&uuml;hren</h2>
+
+        <p>
+          GonoPBX kann entweder &uuml;ber die Web-GUI oder manuell per Kommandozeile aktualisiert werden.
+        </p>
+
+        <h3>&Uuml;ber die Web-GUI</h3>
+        <ol>
+          <li>Gehe zu <strong>Einstellungen &rarr; Server</strong></li>
+          <li>Unter <strong>&bdquo;Update&ldquo;</strong> siehst du, ob eine neue Version verf&uuml;gbar ist</li>
+          <li>Klicke auf <strong>&bdquo;Update installieren&ldquo;</strong></li>
+          <li>GonoPBX startet automatisch neu</li>
+        </ol>
+
+        <h3>Manuell per Kommandozeile</h3>
+        <div style="background:#1a202c;color:#e2e8f0;padding:20px 24px;border-radius:8px;margin:24px 0;font-family:monospace;font-size:0.95rem;overflow-x:auto;">
+          <span style="color:#68d391;">$</span> cd /root/gonopbx<br/>
+          <span style="color:#68d391;">$</span> git pull<br/>
+          <span style="color:#68d391;">$</span> docker compose up -d --build
+        </div>
+
+        <div class="blog-info-box">
+          <p>
+            <strong>Hinweis:</strong> Ein Update startet die Container neu. Aktive Gespr&auml;che werden dabei unterbrochen.
+            F&uuml;hre Updates am besten au&szlig;erhalb der Gesch&auml;ftszeiten durch.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <ul class="footer-links">
+        <li><a href="https://github.com/ankaios76/gonopbx">GitHub</a></li>
+        <li><a href="https://demo.gonopbx.de">Live-Demo</a></li>
+        <li><a href="/handbuch">Handbuch</a></li>
+        <li><a href="/impressum">Impressum</a></li>
+        <li><a href="/datenschutz">Datenschutz</a></li>
+      </ul>
+      <p>&copy; 2026 Norbert Hengsteler. Alle Rechte vorbehalten.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('navToggle')?.addEventListener('click', () => {
+      document.getElementById('navLinks')?.classList.toggle('open');
+    });
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('navLinks')?.classList.remove('open');
+      });
+    });
+  </script>
+
+</Layout>
