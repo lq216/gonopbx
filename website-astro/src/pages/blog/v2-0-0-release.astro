@@ -1,0 +1,151 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Giscus from '../../components/Giscus.astro';
+---
+
+<Layout title="v2.0.0 – Telefonbuch, BLF, Sammelruf & IVR-Updates - GonoPBX Blog" description="GonoPBX v2.0.0 bringt Telefonbuch (global & pro Nebenstelle), BLF/Pickup-Gruppen, Sammelrufe mit DID-Zuordnung sowie IVR-Updates mit Upload, Retries und Inbound-DID.">
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="container">
+      <a href="/" class="nav-logo">
+        <img src="/logo.png" alt="GonoPBX Logo" />
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 12h18M3 6h18M3 18h18" />
+        </svg>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/#features">Features</a></li>
+        <li><a href="/#screenshots">Screenshots</a></li>
+        <li><a href="/#techstack">Technologie</a></li>
+        <li><a href="/#installation">Installation</a></li>
+        <li><a href="/release-notes">Release Notes</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/kontakt">Kontakt</a></li>
+        <li><a href="https://github.com/ankaios76/gonopbx" class="nav-cta">GitHub</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Blog Article -->
+  <section class="blog-article">
+    <div class="container">
+      <a href="/blog/" class="blog-back-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+        Zur&uuml;ck zum Blog
+      </a>
+
+      <div class="blog-article-header">
+        <div class="blog-card-meta" style="justify-content:center;">
+          <span class="blog-card-tag">Release</span>
+          <span>13. Februar 2026</span>
+          <span>&middot;</span>
+          <span>v2.0.0</span>
+        </div>
+        <h1>v2.0.0 &ndash; Telefonbuch, BLF, Sammelruf &amp; IVR-Updates</h1>
+      </div>
+
+      <div class="blog-article-content">
+
+        <p>
+          Mit <strong>GonoPBX v2.0.0</strong> kommt ein gro&szlig;es Paket an Features, das die
+          Praxis deutlich erleichtert: ein zentrales Telefonbuch, BLF/Pickup-Gruppen,
+          Sammelrufe mit DID-Zuordnung und sp&uuml;rbare IVR-Verbesserungen.
+        </p>
+
+        <h2>Neu: Telefonbuch (global &amp; pro Nebenstelle)</h2>
+        <p>
+          Admins k&ouml;nnen jetzt ein <strong>globales Telefonbuch</strong> pflegen, das
+          f&uuml;r alle sichtbar ist. Zus&auml;tzlich gibt es ein
+          <strong>Nebenstellen-Telefonbuch</strong> f&uuml;r individuelle Kontakte.
+          Import und Export sind als <strong>CSV</strong> integriert.
+        </p>
+
+        <h2>BLF &amp; Pickup-Gruppen</h2>
+        <p>
+          Jede Nebenstelle kann jetzt BLF aktivieren und einer oder mehreren
+          <strong>Pickup-Gruppen</strong> zugeordnet werden. So sieht man, wer belegt ist,
+          und kann Anrufe im Team schnell &uuml;bernehmen.
+        </p>
+
+        <h2>Sammelruf (Ring Groups) mit DID-Zuordnung</h2>
+        <p>
+          Sammelrufe lassen sich mit Strategien erstellen (z.B. ringall) und
+          direkt einer <strong>eingehenden Rufnummer</strong> zuweisen.
+          Besonders praktisch, wenn ganze Nummernbl&ouml;cke auf Gruppen geroutet werden sollen.
+        </p>
+
+        <h2>IVR-Verbesserungen</h2>
+        <ul>
+          <li><strong>Ansagen-Upload</strong> inkl. Konvertierung/Validierung</li>
+          <li><strong>Retries</strong> f&uuml;r Fehlversuche</li>
+          <li><strong>Inbound-DID-Mapping</strong> direkt auf das IVR-Men&uuml;</li>
+        </ul>
+
+        <h2>UI-Updates</h2>
+        <p>
+          Der Punkt <strong>SIP Debug</strong> ist jetzt unter
+          <strong>Einstellungen</strong> zu finden und der Audio-Tab hei&szlig;t nun
+          <strong>Audio-Codecs</strong>.
+        </p>
+
+        <h2>Update installieren</h2>
+
+        <h3>Automatisch (empfohlen)</h3>
+        <p>
+          Im GonoPBX-Webinterface unter <strong>Einstellungen &rarr; Server &rarr; Update</strong>
+          auf &bdquo;Update installieren&ldquo; klicken.
+        </p>
+
+        <h3>Manuell</h3>
+        <pre><code>cd /root/asterisk-pbx-gui
+git pull origin main
+docker compose up -d --build</code></pre>
+
+        <div class="blog-info-box">
+          <p>
+            <strong>Hinweis:</strong> Datenbank-Migrationen laufen beim Start automatisch.
+          </p>
+        </div>
+
+        <p>
+          Die vollst&auml;ndigen Release Notes findest du auf der
+          <a href="/release-notes" style="color:#3182ce;font-weight:600;">Release Notes-Seite</a>
+          oder direkt auf
+          <a href="https://github.com/ankaios76/gonopbx/releases/tag/v2.0.0" style="color:#3182ce;font-weight:600;" target="_blank" rel="noopener">GitHub</a>.
+        </p>
+
+        <Giscus />
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <ul class="footer-links">
+        <li><a href="https://github.com/ankaios76/gonopbx">GitHub</a></li>
+        <li><a href="https://demo.gonopbx.de">Live-Demo</a></li>
+        <li><a href="/impressum">Impressum</a></li>
+        <li><a href="/datenschutz">Datenschutz</a></li>
+      </ul>
+      <p>&copy; 2026 Norbert Hengsteler. Alle Rechte vorbehalten.</p>
+    </div>
+  </footer>
+
+  <!-- Mobile nav toggle script -->
+  <script>
+    document.getElementById('navToggle')?.addEventListener('click', () => {
+      document.getElementById('navLinks')?.classList.toggle('open');
+    });
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('navLinks')?.classList.remove('open');
+      });
+    });
+  </script>
+
+</Layout>

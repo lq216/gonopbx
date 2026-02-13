@@ -40,6 +40,23 @@ const posts = await fetchPosts();
       </div>
 
       <div class="blog-grid">
+        <article class="blog-card">
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-card-tag">Release</span>
+              <span>13. Februar 2026</span>
+            </div>
+            <h2><a href="/blog/v2-0-0-release">v2.0.0 – Telefonbuch, BLF, Sammelruf &amp; IVR-Updates</a></h2>
+            <p class="blog-excerpt">
+              Neues Telefonbuch (global &amp; pro Nebenstelle), BLF/Pickup-Gruppen, Sammelrufe mit DID-Zuordnung
+              und IVR-Verbesserungen inkl. Upload, Retries und Inbound-DID.
+            </p>
+            <a href="/blog/v2-0-0-release" class="blog-read-more">
+              Weiterlesen
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </article>
         {posts.length === 0 ? (
           <article class="blog-card">
             <div class="blog-card-body">
